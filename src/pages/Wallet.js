@@ -14,12 +14,37 @@ class Wallet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      expense: { },
+      expense: {
+        currency: 0,
+        description: '',
+        paymentMethod: '',
+        tag: '',
+        value: 0,
+      },
     };
   }
 
+  renderSelects() {
+    const { paymentMethod, tag } = this.state;
+    return (
+      <>
+        <Select
+          name="paymentMethod"
+          dataTestId="method-input"
+          options={ ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'] }
+          value={ paymentMethod }
+        />
+        <Select
+          name="tag"
+          dataTestId="tag-input"
+          options={ ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'] }
+          value={ tag }
+        />
+      </>);
+  }
+
   render() {
-    const { expense } = this.state;
+    const { expense: { currency, description, value } } = this.state;
     const { addExpenses } = this.props;
     return (
       <section>
@@ -27,29 +52,27 @@ class Wallet extends React.Component {
         <Row>
           <Form>
             <Input
+              name="value"
               textLabel="Valor:"
               type="number"
               dataTestId="value-input"
+              value={ value }
             />
             <Input
+              name="currency"
               textLabel="Moeda"
               type="number"
               dataTestId="currency-input"
+              value={ currency }
             />
-            <Select
-              name="payment-method"
-              dataTestId="method-input"
-              options={ ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'] }
-            />
-            <Select
-              name="tag"
-              dataTestId="tag-input"
-              options={ ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'] }
-            />
+            { this.renderSelects() }
+
             <Input
+              name="description"
               textLabel="Descricao"
               type="text"
               dataTestId="description-input"
+              value={ description }
             />
             <Button
               name="adiciona-despesa"
@@ -61,7 +84,6 @@ class Wallet extends React.Component {
           </Form>
         </Row>
       </section>
-
     );
   }
 }
