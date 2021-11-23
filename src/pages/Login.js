@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
+import loginAction from '../actions';
 import Button from '../components/Button';
 import Input from '../components/Input';
 
@@ -14,6 +17,7 @@ class Login extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.formValidation = this.formValidation.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target: { name, value } }) {
@@ -22,11 +26,16 @@ class Login extends React.Component {
     }, this.formValidation);
   }
 
+  handleClick() {
+    const { email } = this.state;
+    const { doLogin } = this.props;
+    doLogin(email);
+  }
+
   emailValidation() {
     const { email } = this.state;
     const emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.([a-z]+)?$/i;
     const isValidEmail = emailRegex.test(email);
-    console.log(isValidEmail);
     return isValidEmail;
   }
 
@@ -72,10 +81,19 @@ class Login extends React.Component {
           dataTestId=""
           value="Entrar"
           disabled={ disabled }
+          onClick={ this.handleClick }
         />
       </article>
     );
   }
 }
 
-export default Login;
+Login.propTypes = {
+  doLogin: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  doLogin: (email) => dispatch(loginAction(email)),
+});
+
+export default connect(null, mapDispatchToProps)(Login);
