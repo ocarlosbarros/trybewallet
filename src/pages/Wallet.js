@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Row from '../components/Row';
 import Form from '../components/Form';
 import Input from '../components/Input';
+import Select from '../components/Select';
 
 class Wallet extends React.Component {
   render() {
@@ -21,6 +22,16 @@ class Wallet extends React.Component {
               textLabel="Moeda"
               type="number"
               dataTestId="currency-input"
+            />
+            <Select
+              name="payment-method"
+              dataTestId="method-input"
+              options={ ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'] }
+            />
+            <Select
+              name="tag"
+              dataTestId="tag-input"
+              options={ ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'] }
             />
             <Input
               textLabel="Descricao"
