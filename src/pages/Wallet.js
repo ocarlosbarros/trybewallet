@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Button from '../components/Button';
 import Header from '../components/Header';
 import Row from '../components/Row';
@@ -7,7 +9,16 @@ import Input from '../components/Input';
 import Select from '../components/Select';
 
 class Wallet extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expense: { },
+    };
+  }
+
   render() {
+    const { expense } = this.state;
+    const { addExpenses } = this.props;
     return (
       <section>
         <Header />
@@ -43,6 +54,7 @@ class Wallet extends React.Component {
               dataTestId="add-expense"
               value="Adicionar despesa"
               disabled={ false }
+              onClick={ (state) => addExpenses(state) }
             />
           </Form>
         </Row>
@@ -52,4 +64,12 @@ class Wallet extends React.Component {
   }
 }
 
-export default Wallet;
+Wallet.propTypes = {
+  addExpenses: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = (dispetch) => {
+  (expense) => dispetch();
+};
+
+export default connect(null, mapDispatchToProps)(Wallet);
