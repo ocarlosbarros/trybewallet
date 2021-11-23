@@ -1,0 +1,27 @@
+header {
+  align-items:center;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+h2 {
+  flex-grow: 1;
+  width: 60%;
+}
+
+p {
+  flex-grow: 1;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  padding: 1em;
+  flex-grow: 1;
+}
+
+ul > li {
+  margin-left: 2em;
+}
