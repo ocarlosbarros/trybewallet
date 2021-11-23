@@ -22,10 +22,20 @@ class Wallet extends React.Component {
         value: 0,
       },
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange({ target: { name, value } }) {
+    this.setState((prevState) => ({
+      expense: {
+        ...prevState.expense,
+        [name]: value,
+      },
+    }));
   }
 
   renderSelects() {
-    const { paymentMethod, tag } = this.state;
+    const { expense: { paymentMethod, tag } } = this.state;
     return (
       <>
         <Select
@@ -33,12 +43,14 @@ class Wallet extends React.Component {
           dataTestId="method-input"
           options={ ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'] }
           value={ paymentMethod }
+          onChange={ this.handleChange }
         />
         <Select
           name="tag"
           dataTestId="tag-input"
           options={ ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'] }
           value={ tag }
+          onChange={ this.handleChange }
         />
       </>);
   }
@@ -57,6 +69,7 @@ class Wallet extends React.Component {
               type="number"
               dataTestId="value-input"
               value={ value }
+              onChange={ this.handleChange }
             />
             <Input
               name="currency"
@@ -64,15 +77,16 @@ class Wallet extends React.Component {
               type="number"
               dataTestId="currency-input"
               value={ currency }
+              onChange={ this.handleChange }
             />
             { this.renderSelects() }
-
             <Input
               name="description"
               textLabel="Descricao"
               type="text"
               dataTestId="description-input"
               value={ description }
+              onChange={ this.handleChange }
             />
             <Button
               name="adiciona-despesa"
