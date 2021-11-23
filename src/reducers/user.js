@@ -1,9 +1,7 @@
 import { LOGIN } from '../actions/actionsTypes';
 
 const INITIAL_STATE = {
-  user: {
-    email: '',
-  },
+  email: '',
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -11,7 +9,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
   case LOGIN:
     return {
       ...state,
-      user: { email: action.payload },
+      email: action.payload,
     };
 
   default:

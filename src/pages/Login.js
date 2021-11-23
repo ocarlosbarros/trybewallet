@@ -37,7 +37,12 @@ class Login extends React.Component {
 
   emailValidation() {
     const { email } = this.state;
-    const emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.([a-z]+)?$/i;
+    /**
+     *  Para validação de email utilizei regex conforme indicado em uma pergunta no stackoverflow
+     *  source:https://pt.stackoverflow.com/questions/1386/express%C3%A3o-regular-para-valida%C3%A7%C3%A3o-de-e-mail
+     * O símbolo de + indica um quantificado que permite 1  ou mais ocorrencias de uma mesma regra
+    */
+    const emailRegex = /^[a-z0-9]+@[a-z0-9]+\.[a-z]+$/i;
     const isValidEmail = emailRegex.test(email);
     return isValidEmail;
   }
@@ -55,6 +60,8 @@ class Login extends React.Component {
     const isValidPassword = this.passwordValidation();
     if (isValidEmail && isValidPassword) {
       this.setState({ disabled: false });
+    } else {
+      this.setState({ disabled: true });
     }
   }
 
