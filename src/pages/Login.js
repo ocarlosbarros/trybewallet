@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { Redirect } from 'react-router';
-import loginAction from '../actions';
+import { loginAction } from '../actions';
 import Button from '../components/Button';
 import Input from '../components/Input';
 
