@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import './index.css';
+
 class Row extends Component {
   render() {
-    const { chidren } = this.props;
+    const { children } = this.props;
     return (
-      <div>
-        { chidren }
+      <div className="row">
+        { children }
       </div>
     );
   }
 }
 
 Row.propTypes = {
-  chidren: PropTypes.arrayOf(
-    PropTypes.node,
-  ).isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Row;

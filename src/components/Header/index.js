@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import './Header.css';
+import './index.css';
 
 class Header extends Component {
   render() {
