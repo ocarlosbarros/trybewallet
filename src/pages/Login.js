@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { Redirect } from 'react-router';
 import loginAction from '../actions';
 import Button from '../components/Button';
 import Input from '../components/Input';
@@ -13,6 +14,7 @@ class Login extends React.Component {
       email: '',
       password: '',
       disabled: true,
+      loggedIn: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,6 +32,7 @@ class Login extends React.Component {
     const { email } = this.state;
     const { doLogin } = this.props;
     doLogin(email);
+    this.setState({ loggedIn: true });
   }
 
   emailValidation() {
@@ -56,7 +59,10 @@ class Login extends React.Component {
   }
 
   render() {
-    const { email, password, disabled } = this.state;
+    const { email, password, disabled, loggedIn } = this.state;
+
+    if (loggedIn) return <Redirect to="/carteira" />;
+
     return (
       <article>
         <h2>Login</h2>
@@ -78,7 +84,7 @@ class Login extends React.Component {
         />
         <Button
           name="login"
-          dataTestId=""
+          dataTestId="login"
           value="Entrar"
           disabled={ disabled }
           onClick={ this.handleClick }
