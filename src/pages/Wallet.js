@@ -7,6 +7,7 @@ import Row from '../components/Row';
 import Form from '../components/Form';
 import Input from '../components/Input';
 import Select from '../components/Select';
+import { expensesAction } from '../actions';
 
 class Wallet extends React.Component {
   constructor(props) {
@@ -68,8 +69,8 @@ Wallet.propTypes = {
   addExpenses: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = (dispetch) => {
-  (expense) => dispetch();
-};
+const mapDispatchToProps = (dispetch) => ({
+  expenses: (expense) => dispetch(expensesAction(expense)),
+});
 
 export default connect(null, mapDispatchToProps)(Wallet);

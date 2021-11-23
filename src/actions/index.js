@@ -1,5 +1,7 @@
-import { LOGIN } from './actionsTypes';
+import { LOGIN, ADD_EXPENSE } from './actionsTypes';
 
 const loginAction = (email) => ({ type: LOGIN, payload: email });
 
-export default loginAction;
+const expensesAction = (expense) => ({ type: ADD_EXPENSE, payload: expense });
+
+export { loginAction, expensesAction };
