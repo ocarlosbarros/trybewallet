@@ -15,6 +15,7 @@ class Wallet extends React.Component {
     super(props);
     this.state = {
       expense: {
+        id: 0,
         currency: 0,
         description: '',
         paymentMethod: '',
@@ -56,7 +57,8 @@ class Wallet extends React.Component {
   }
 
   render() {
-    const { expense: { currency, description, value } } = this.state;
+    const { expense:
+      { currency, description, id, paymentMethod, tag, value } } = this.state;
     const { addExpenses } = this.props;
     return (
       <section>
@@ -93,7 +95,9 @@ class Wallet extends React.Component {
               dataTestId="add-expense"
               value="Adicionar despesa"
               disabled={ false }
-              onClick={ (state) => addExpenses(state) }
+              onClick={ () => addExpenses({
+                id, value, currency, paymentMethod, tag, description,
+              }) }
             />
           </Form>
         </Row>
@@ -107,7 +111,7 @@ Wallet.propTypes = {
 };
 
 const mapDispatchToProps = (dispetch) => ({
-  expenses: (expense) => dispetch(expensesAction(expense)),
+  addExpenses: (expense) => dispetch(expensesAction(expense)),
 });
 
 export default connect(null, mapDispatchToProps)(Wallet);

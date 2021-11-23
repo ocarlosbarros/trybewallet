@@ -13,7 +13,7 @@ class Select extends Component {
           onChange={ onChange }
         >
           { options.map((option, index) => (
-            <option key={ option + index }>{ option }</option>
+            <option value={ option } key={ option + index }>{ option }</option>
           ))}
         </select>
       </label>
