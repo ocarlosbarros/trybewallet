@@ -12,7 +12,7 @@ class Select extends Component {
           id={ name }
         >
           { options.map((option, index) => (
-            <option value={ option } key={ option.value + index }>{ option }</option>
+            <option value={ option } key={ option + index }>{ option }</option>
           ))}
         </select>
       </label>
