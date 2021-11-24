@@ -18,7 +18,10 @@ const walletReducer = (state = INITIAL_STATE, action) => {
       ],
     };
   case GET_CURRENCIES:
-    return { ...state.expenses, exchangeRates: action.payload };
+    return {
+      ...state,
+      expenses: state.expenses,
+      exchangeRates: action.payload };
   default:
     return state;
   }
