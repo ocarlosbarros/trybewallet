@@ -8,7 +8,7 @@ import Row from '../components/Row';
 import Form from '../components/Form';
 import Input from '../components/Input';
 import Select from '../components/Select';
-import { expensesAction } from '../actions';
+import { addExpenses, fetchCurrencies } from '../actions';
 
 class Wallet extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Wallet extends React.Component {
     this.state = {
       expense: {
         id: 0,
-        currency: 0,
+        currency: 'BRL',
         description: '',
         paymentMethod: '',
         tag: '',
@@ -24,6 +24,12 @@ class Wallet extends React.Component {
       },
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    const { getCurrencies } = this.props;
+    getCurrencies();
   }
 
   handleChange({ target: { name, value } }) {
@@ -33,6 +39,12 @@ class Wallet extends React.Component {
         [name]: value,
       },
     }));
+  }
+
+  handleClick() {
+    const { expense } = this.state;
+    const { addExpense } = this.props;
+    addExpense(expense);
   }
 
   renderSelects() {
@@ -57,9 +69,7 @@ class Wallet extends React.Component {
   }
 
   render() {
-    const { expense:
-      { currency, description, id, paymentMethod, tag, value } } = this.state;
-    const { addExpenses } = this.props;
+    const { expense: { value, currency, description } } = this.state;
     return (
       <section>
         <Header />
@@ -70,13 +80,13 @@ class Wallet extends React.Component {
               textLabel="Valor:"
               type="number"
               dataTestId="value-input"
-              value={ value }
+              value={ value.toString() }
               onChange={ this.handleChange }
             />
             <Input
               name="currency"
               textLabel="Moeda"
-              type="number"
+              type="text"
               dataTestId="currency-input"
               value={ currency }
               onChange={ this.handleChange }
@@ -95,9 +105,7 @@ class Wallet extends React.Component {
               dataTestId="add-expense"
               value="Adicionar despesa"
               disabled={ false }
-              onClick={ () => addExpenses({
-                id, value, currency, paymentMethod, tag, description,
-              }) }
+              onClick={ this.handleClick }
             />
           </Form>
         </Row>
@@ -107,11 +115,13 @@ class Wallet extends React.Component {
 }
 
 Wallet.propTypes = {
-  addExpenses: PropTypes.func.isRequired,
+  addExpense: PropTypes.func.isRequired,
+  getCurrencies: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = (dispetch) => ({
-  addExpenses: (expense) => dispetch(expensesAction(expense)),
+const mapDispatchToProps = (dispatch) => ({
+  addExpense: (expense) => dispatch(addExpenses(expense)),
+  getCurrencies: () => dispatch(fetchCurrencies()),
 });
 
 export default connect(null, mapDispatchToProps)(Wallet);

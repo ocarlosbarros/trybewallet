@@ -1,14 +1,22 @@
-import { LOGIN, ADD_EXPENSE } from './actionsTypes';
+import { LOGIN, ADD_EXPENSE, GET_CURRENCIES, GET_ERROR } from './actionsTypes';
 
 const loginAction = (email) => ({ type: LOGIN, payload: email });
 
-const expensesAction = (expense) => ({ type: ADD_EXPENSE, payload: expense });
+const addExpenses = (expense) => ({ type: ADD_EXPENSE, payload: expense });
 
-const getExchangesAPI = () => (dispatch) => {
-  dispatch(expensesAction());
-  return fetch('https://economia.awesomeapi.com.br/json/all')
-    .then((response) => response.json()
-      .then((exchanges) => console.log(exchanges)));
-};
+const setCurrencies = (currencies) => ({ type: GET_CURRENCIES, payload: currencies });
 
-export { loginAction, expensesAction, getExchangesAPI };
+const getError = (error) => ({ type: GET_ERROR, payload: error });
+
+function fetchCurrencies() {
+  // recebe o dispatch para enviar outras actions
+  return (dispatch) => {
+    const BASE_URL = 'https://economia.awesomeapi.com.br/json/all';
+    fetch(BASE_URL)
+      .then((response) => response.json())
+      .then((currencies) => dispatch(setCurrencies(currencies)))
+      .catch((error) => dispatch(getError(error)));
+  };
+}
+
+export { loginAction, addExpenses, setCurrencies, fetchCurrencies, getError };
