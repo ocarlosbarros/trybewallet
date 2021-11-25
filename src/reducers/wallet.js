@@ -6,7 +6,6 @@ const INITIAL_STATE = {
 };
 
 const walletReducer = (state = INITIAL_STATE, action) => {
-  console.log(action);
   switch (action.type) {
   case ADD_EXPENSE:
     return {

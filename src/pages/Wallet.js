@@ -16,7 +16,7 @@ class Wallet extends React.Component {
     this.state = {
       expense: {
         id: 0,
-        currency: 'BRL',
+        currency: '',
         description: '',
         paymentMethod: '',
         tag: '',
@@ -69,7 +69,8 @@ class Wallet extends React.Component {
   }
 
   render() {
-    const { expense: { value, currency, description } } = this.state;
+    const { expense: { value, description, currency } } = this.state;
+    const { currencies } = this.props;
     return (
       <section>
         <Header />
@@ -83,11 +84,11 @@ class Wallet extends React.Component {
               value={ value.toString() }
               onChange={ this.handleChange }
             />
-            <Input
+            <Select
               name="currency"
-              textLabel="Moeda"
-              type="text"
+              textLabel="Moeda:"
               dataTestId="currency-input"
+              options={ [...currencies] }
               value={ currency }
               onChange={ this.handleChange }
             />
@@ -117,6 +118,7 @@ class Wallet extends React.Component {
 Wallet.propTypes = {
   addExpense: PropTypes.func.isRequired,
   getCurrencies: PropTypes.func.isRequired,
+  currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -124,4 +126,8 @@ const mapDispatchToProps = (dispatch) => ({
   getCurrencies: () => dispatch(getCurrenciesAction()),
 });
 
-export default connect(null, mapDispatchToProps)(Wallet);
+const mapStateToProps = (state) => ({
+  currencies: state.wallet.currencies,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
