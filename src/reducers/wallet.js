@@ -1,6 +1,7 @@
 import { ADD_EXPENSE, GET_CURRENCIES } from '../actions/actionsTypes';
 
 const INITIAL_STATE = {
+  currencies: [],
   expenses: [],
 };
 
@@ -19,11 +20,14 @@ const walletReducer = (state = INITIAL_STATE, action) => {
         },
       ],
     };
-  case GET_CURRENCIES:
+  case GET_CURRENCIES: {
+    const currencies = Object.keys(action.payload)
+      .filter((currencie) => currencie !== 'USDT');
     return {
       ...state,
       expenses: state.expenses,
-      exchangeRates: action.payload };
+      currencies };
+  }
   default:
     return state;
   }

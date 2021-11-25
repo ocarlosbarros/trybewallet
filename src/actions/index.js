@@ -3,14 +3,14 @@ import fetchCurrencies from '../services';
 
 const loginAction = (email) => ({ type: LOGIN, payload: email });
 
-const getCurrencies = () => {
-  fetchCurrencies((currencies) => ({ type: GET_CURRENCIES, payload: currencies }));
-};
+const getCurrencies = (currencies) => ({ type: GET_CURRENCIES, payload: currencies });
 
 const getError = (error) => ({ type: GET_ERROR, payload: error });
 
 const getCurrenciesAction = () => (dispatch) => {
-  dispatch(fetchCurrencies(getCurrencies));
+  fetchCurrencies((currencies) => {
+    dispatch(getCurrencies(currencies));
+  });
 };
 
 const addExpenses = (expense) => (dispatch) => {
