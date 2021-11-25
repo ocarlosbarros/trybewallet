@@ -5,6 +5,7 @@ const INITIAL_STATE = {
 };
 
 const walletReducer = (state = INITIAL_STATE, action) => {
+  console.log(action);
   switch (action.type) {
   case ADD_EXPENSE:
     return {
@@ -14,6 +15,7 @@ const walletReducer = (state = INITIAL_STATE, action) => {
         {
           ...action.payload,
           id: state.expenses.length,
+          exchangeRates: action.exchangeRates,
         },
       ],
     };

@@ -8,7 +8,7 @@ import Row from '../components/Row';
 import Form from '../components/Form';
 import Input from '../components/Input';
 import Select from '../components/Select';
-import { addExpenses, fetchCurrencies } from '../actions';
+import { addExpenses, getCurrenciesAction } from '../actions';
 
 class Wallet extends React.Component {
   constructor(props) {
@@ -121,7 +121,7 @@ Wallet.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   addExpense: (expense) => dispatch(addExpenses(expense)),
-  getCurrencies: () => dispatch(fetchCurrencies()),
+  getCurrencies: () => dispatch(getCurrenciesAction()),
 });
 
 export default connect(null, mapDispatchToProps)(Wallet);
