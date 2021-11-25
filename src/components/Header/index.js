@@ -8,15 +8,27 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      totalExpenses: 0,
+      totalExpenses: 100,
     };
+
+    this.getTotalExpenses = this.getTotalExpenses.bind(this);
   }
 
   componentDidMount() {
+    this.getTotalExpenses();
+  }
 
+  getTotalExpenses() {
+    const { expenses } = this.props;
+    if (Array.isArray(expenses)) {
+      const totalExpenses = expenses
+        .reduce((sumExpenses, expense) => (sumExpenses + expense.value), 0);
+      this.setState({ totalExpenses });
+    }
   }
 
   render() {
+    const { totalExpenses } = this.state;
     const { email } = this.props;
     return (
       <header>
@@ -25,7 +37,11 @@ class Header extends Component {
         </h2>
         <p data-testid="email-field">{`Email:  ${email}`}</p>
         <ul>
-          <li data-testid="total-field">Despesa Total: 0</li>
+          <li data-testid="total-field">
+            Despesa Total:
+            {' '}
+            { totalExpenses }
+          </li>
           <li data-testid="header-currency-field">BRL</li>
         </ul>
       </header>
@@ -35,11 +51,20 @@ class Header extends Component {
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
+  expenses: PropTypes.shape({
+    id: PropTypes.number,
+    currency: PropTypes.string,
+    description: PropTypes.string,
+    paymentMethod: PropTypes.string,
+    tag: PropTypes.string,
+    value: PropTypes.string,
+    reduce: PropTypes.func,
+  }).isRequired,
 };
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
-  value: state.wallet.expenses,
+  expenses: state.wallet.expenses,
 });
 
 export default connect(mapStateToProps, null)(Header);
