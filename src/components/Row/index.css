@@ -3,7 +3,7 @@
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
   display: flex;
-  height:80px;
+  height: 80px;
   justify-content: space-around;
   padding: 1em;
 }

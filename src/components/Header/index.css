@@ -1,5 +1,5 @@
 header {
-  align-items:center;
+  align-items: center;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: space-between;
@@ -17,9 +17,9 @@ p {
 
 ul {
   display: flex;
+  flex-grow: 1;
   list-style-type: none;
   padding: 1em;
-  flex-grow: 1;
 }
 
 ul > li {
