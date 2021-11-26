@@ -13,7 +13,8 @@ import { addExpenses, getCurrenciesAction } from '../actions';
 class Wallet extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+
+    this.INITIAL_STATE = {
       expense: {
         id: 0,
         currency: 'USD',
@@ -23,6 +24,8 @@ class Wallet extends React.Component {
         value: '',
       },
     };
+
+    this.state = { ...this.INITIAL_STATE };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -45,6 +48,7 @@ class Wallet extends React.Component {
     const { expense } = this.state;
     const { addExpense } = this.props;
     addExpense(expense);
+    this.setState({ ...this.INITIAL_STATE });
   }
 
   renderSelects() {
