@@ -5,31 +5,8 @@ import { connect } from 'react-redux';
 import './index.css';
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      totalExpenses: 100,
-    };
-
-    this.getTotalExpenses = this.getTotalExpenses.bind(this);
-  }
-
-  componentDidMount() {
-    this.getTotalExpenses();
-  }
-
-  getTotalExpenses() {
-    const { expenses } = this.props;
-    if (Array.isArray(expenses)) {
-      const totalExpenses = expenses
-        .reduce((sumExpenses, expense) => (sumExpenses + expense.value), 0);
-      this.setState({ totalExpenses });
-    }
-  }
-
   render() {
-    const { totalExpenses } = this.state;
-    const { email } = this.props;
+    const { email, totalExpenses } = this.props;
     return (
       <header>
         <h2>
@@ -65,6 +42,7 @@ Header.propTypes = {
 const mapStateToProps = (state) => ({
   email: state.user.email,
   expenses: state.wallet.expenses,
+  totalExpenses: state.wallet.totalExpenses,
 });
 
 export default connect(mapStateToProps, null)(Header);

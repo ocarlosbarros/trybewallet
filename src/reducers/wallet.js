@@ -4,7 +4,7 @@ import sumExpenses from '../handlers';
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
-  totalExpensesValue: 0,
+  totalExpenses: 0,
 };
 
 const walletReducer = (state = INITIAL_STATE, action) => {
@@ -20,7 +20,7 @@ const walletReducer = (state = INITIAL_STATE, action) => {
           exchangeRates: action.exchangeRates,
         },
       ],
-      totalExpensesValue: sumExpenses(state.totalExpensesValue, action.payload.value),
+      totalExpenses: sumExpenses(state.totalExpenses, action.payload.value),
     };
   case GET_CURRENCIES: {
     const currencies = Object.keys(action.payload)
