@@ -37,6 +37,7 @@ Header.propTypes = {
     value: PropTypes.string,
     reduce: PropTypes.func,
   }).isRequired,
+  totalExpenses: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
