@@ -137,7 +137,7 @@ describe('4 - Desenvolva um formulário para adicionar uma despesa contendo as s
     userEvent.type(descriptionInput, 'Dez dólares');
     fireEvent.click(addButton);
     expect(mockedExchange).toBeCalledTimes(2);
-
+   
     const expectedStateExpense = [
       {
         id: 0,

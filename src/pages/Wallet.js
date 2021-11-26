@@ -18,9 +18,9 @@ class Wallet extends React.Component {
         id: 0,
         currency: 'USD',
         description: '',
-        paymentMethod: 'Dinheiro',
+        method: 'Dinheiro',
         tag: 'Alimentação',
-        value: 0,
+        value: '',
       },
     };
     this.handleChange = this.handleChange.bind(this);
@@ -48,14 +48,14 @@ class Wallet extends React.Component {
   }
 
   renderSelects() {
-    const { expense: { paymentMethod, tag } } = this.state;
+    const { expense: { method, tag } } = this.state;
     return (
       <>
         <Select
-          name="paymentMethod"
+          name="method"
           dataTestId="method-input"
           options={ ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'] }
-          value={ paymentMethod }
+          value={ method }
           onChange={ this.handleChange }
         />
         <Select
