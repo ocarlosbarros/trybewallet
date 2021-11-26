@@ -16,7 +16,7 @@ class Button extends Component {
           disabled={ disabled }
           onClick={ onClick }
         >
-          { value }
+          Adicionar despesa
         </button>
       </label>
     );

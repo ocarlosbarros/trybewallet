@@ -15,8 +15,6 @@ class Header extends Component {
         <p data-testid="email-field">{`Email:  ${email}`}</p>
         <ul>
           <li data-testid="total-field">
-            Despesa Total:
-            {' '}
             { totalExpenses }
           </li>
           <li data-testid="header-currency-field">BRL</li>
@@ -26,18 +24,13 @@ class Header extends Component {
   }
 }
 
+Header.defaultProps = {
+  totalExpenses: 0,
+};
+
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  expenses: PropTypes.shape({
-    id: PropTypes.number,
-    currency: PropTypes.string,
-    description: PropTypes.string,
-    paymentMethod: PropTypes.string,
-    tag: PropTypes.string,
-    value: PropTypes.string,
-    reduce: PropTypes.func,
-  }).isRequired,
-  totalExpenses: PropTypes.number.isRequired,
+  totalExpenses: PropTypes.number,
 };
 
 const mapStateToProps = (state) => ({

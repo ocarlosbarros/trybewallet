@@ -16,10 +16,10 @@ class Wallet extends React.Component {
     this.state = {
       expense: {
         id: 0,
-        currency: '',
+        currency: 'USD',
         description: '',
-        paymentMethod: '',
-        tag: '',
+        paymentMethod: 'Dinheiro',
+        tag: 'Alimentação',
         value: 0,
       },
     };
@@ -102,8 +102,8 @@ class Wallet extends React.Component {
               onChange={ this.handleChange }
             />
             <Button
-              name="adiciona-despesa"
-              dataTestId="add-expense"
+              dataTestId=""
+              name="Adicionar despesa"
               value="Adicionar despesa"
               disabled={ false }
               onClick={ this.handleClick }

@@ -1,9 +1,9 @@
 .row {
-  background-color:rgba(0, 0, 0, 0.9);
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  padding:1em;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  display: flex;
   height:80px;
-  color:white;
+  justify-content: space-around;
+  padding: 1em;
 }
