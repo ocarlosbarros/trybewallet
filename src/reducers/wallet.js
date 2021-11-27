@@ -1,5 +1,5 @@
 import { ADD_EXPENSE, GET_CURRENCIES } from '../actions/actionsTypes';
-import sumExpenses from '../handlers';
+import { currencyConverter } from '../handlers';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -9,19 +9,20 @@ const INITIAL_STATE = {
 
 const walletReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-  case ADD_EXPENSE:
+  case ADD_EXPENSE: {
     return {
       ...state,
       expenses: [
         ...state.expenses,
         {
           ...action.payload,
+          value: console.log(currencyConverter(action.payload)),
           id: state.expenses.length,
           exchangeRates: action.exchangeRates,
         },
       ],
-      totalExpenses: sumExpenses(state.totalExpenses, action.payload.value),
     };
+  }
   case GET_CURRENCIES: {
     const currencies = Object.keys(action.payload)
       .filter((currencie) => currencie !== 'USDT');

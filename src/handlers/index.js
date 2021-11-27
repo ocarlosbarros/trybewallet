@@ -1,5 +1,19 @@
+import fetchCurrencies from '../services/index';
+
 const BASE_RADIX = 10;
-export default function sumExpenses(totalExpenses, currentValue) {
-  const convertedvalue = Number.parseInt(currentValue, BASE_RADIX);
-  return totalExpenses + convertedvalue;
+export function sumExpenses(totalExpenses, currentValue) {
+  const convertedToInt = currentValue ? Number.parseInt(currentValue, BASE_RADIX) : 0;
+  totalExpenses += convertedToInt;
+  return totalExpenses;
+}
+
+export function roundDecimal(number, fractionPart) {
+  return number.toFixed(fractionPart);
+}
+
+export function currencyConverter({ value, currency }) {
+  fetchCurrencies((currencies) => {
+    value *= currencies[currency].ask;
+    console.log(roundDecimal(value, 2));
+  });
 }

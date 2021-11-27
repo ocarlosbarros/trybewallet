@@ -13,24 +13,19 @@ class Header extends Component {
           <img src="/trybewallet-logo.jpeg" alt="logo trybe wallet" />
         </h2>
         <p data-testid="email-field">{`Email:  ${email}`}</p>
-        <ul>
-          <li data-testid="total-field">
-            { totalExpenses }
-          </li>
-          <li data-testid="header-currency-field">BRL</li>
-        </ul>
+        <p data-testid="total-field">
+          { totalExpenses }
+        </p>
+        <p data-testid="header-currency-field">BRL</p>
+
       </header>
     );
   }
 }
 
-Header.defaultProps = {
-  totalExpenses: 0,
-};
-
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  totalExpenses: PropTypes.number,
+  totalExpenses: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({

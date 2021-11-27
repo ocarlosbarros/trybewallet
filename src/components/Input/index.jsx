@@ -8,6 +8,7 @@ class Input extends Component {
       <label htmlFor={ name }>
         { textLabel }
         <input
+          autoComplete="false"
           type={ type }
           name={ name }
           id={ name }
