@@ -1,5 +1,4 @@
 import { ADD_EXPENSE, GET_CURRENCIES } from '../actions/actionsTypes';
-import { currencyConverter } from '../handlers';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -16,7 +15,6 @@ const walletReducer = (state = INITIAL_STATE, action) => {
         ...state.expenses,
         {
           ...action.payload,
-          value: console.log(currencyConverter(action.payload)),
           id: state.expenses.length,
           exchangeRates: action.exchangeRates,
         },

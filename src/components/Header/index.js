@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
+import { updateValue, roundDecimal } from '../../handlers';
 import './index.css';
 
 class Header extends Component {
   render() {
-    const { email, totalExpenses } = this.props;
+    const { email, expenses } = this.props;
     return (
       <header>
         <h2>
@@ -14,7 +14,8 @@ class Header extends Component {
         </h2>
         <p data-testid="email-field">{`Email:  ${email}`}</p>
         <p data-testid="total-field">
-          { totalExpenses }
+          { roundDecimal(expenses.reduce((totalExpenses, expense) => (
+            totalExpenses + updateValue(expense)), 0), 2) }
         </p>
         <p data-testid="header-currency-field">BRL</p>
 
@@ -25,7 +26,7 @@ class Header extends Component {
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  totalExpenses: PropTypes.number.isRequired,
+  expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapStateToProps = (state) => ({
