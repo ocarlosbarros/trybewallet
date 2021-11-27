@@ -7,6 +7,10 @@ export function roundDecimal(number, fractionPart) {
   return number.toFixed(fractionPart);
 }
 
+export function splitString(stringValue) {
+  return stringValue.split('/');
+}
+
 /**
  * Para realizar a soma corretamente com os dados da cotação consultei o
  * repositório do Neader Menezes.
