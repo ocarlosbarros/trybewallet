@@ -1,0 +1,15 @@
+.table {
+  border: 1px solid black;
+  width: 100%;
+}
+
+.table tr {
+  
+  margin: 1em;
+}
+
+.table  th  {
+  padding: 0.5em;
+  background-color: rgba(87, 101, 116,1.0);
+}
+

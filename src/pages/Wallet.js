@@ -9,6 +9,7 @@ import Form from '../components/Form';
 import Input from '../components/Input';
 import Select from '../components/Select';
 import { addExpenses, getCurrenciesAction } from '../actions';
+import Table from '../components/Table';
 
 class Wallet extends React.Component {
   constructor(props) {
@@ -114,6 +115,9 @@ class Wallet extends React.Component {
             />
           </Form>
         </Row>
+        <article>
+          <Table />
+        </article>
       </section>
     );
   }
