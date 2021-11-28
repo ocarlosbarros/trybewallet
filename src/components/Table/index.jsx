@@ -67,7 +67,7 @@ class Table extends Component {
   }
 }
 
-Table.defaultPros = {
+Table.defaultProps = {
   expenses: [],
 };
 
