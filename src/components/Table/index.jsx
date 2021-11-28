@@ -25,7 +25,6 @@ class Table extends Component {
 
   render() {
     const { expenses } = this.props;
-    const buttons = this.renderButton();
     return (
       <table className="table">
         <thead>
@@ -59,7 +58,6 @@ class Table extends Component {
                   }
                 </td>
                 <td>{ splitString(expense.exchangeRates[expense.currency].name)[1] }</td>
-                { buttons }
               </tr>
             ))
           }
@@ -68,13 +66,9 @@ class Table extends Component {
     );
   }
 }
-
 Table.propTypes = {
-  expenses: PropTypes.shape({
-    map: PropTypes.func,
-  }).isRequired,
-};
-
+  expenses:PropTypes.arrayOf(PropTypes.object),
+}
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
