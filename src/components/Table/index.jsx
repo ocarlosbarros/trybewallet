@@ -66,9 +66,14 @@ class Table extends Component {
     );
   }
 }
+
+Table.defaultPros = {
+  expenses: [],
+};
+
 Table.propTypes = {
-  expenses:PropTypes.arrayOf(PropTypes.object),
-}
+  expenses: PropTypes.arrayOf(PropTypes.object),
+};
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
