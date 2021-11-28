@@ -3,6 +3,10 @@ export function converToInt(number) {
   return Number.parseInt(number, BASE_RADIX);
 }
 
+export function converToFloat(number) {
+  return Number.parseFloat(number);
+}
+
 export function roundDecimal(number, fractionPart) {
   return number.toFixed(fractionPart);
 }
