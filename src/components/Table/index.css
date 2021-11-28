@@ -4,12 +4,12 @@
 }
 
 .table tr {
-  
   margin: 1em;
 }
 
-.table  th  {
+.table th {
+  background-color:rgba(87, 101, 116, 1.0);
   padding: 0.5em;
-  background-color: rgba(87, 101, 116,1.0);
 }
+
 
