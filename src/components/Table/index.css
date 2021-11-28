@@ -8,8 +8,6 @@
 }
 
 .table th {
-  background-color:rgba(87, 101, 116, 1.0);
+  background-color: rgba(87, 101, 116, 1);
   padding: 0.5em;
 }
-
-
