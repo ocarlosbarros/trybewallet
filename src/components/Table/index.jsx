@@ -2,7 +2,7 @@ import { Button } from 'bootstrap';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { splitString, roundDecimal, converToInt } from '../../handlers';
+import { splitString, roundDecimal, converToInt, updateValue } from '../../handlers';
 import './index.css';
 
 class Table extends Component {
@@ -50,13 +50,7 @@ class Table extends Component {
                 <td>{ roundDecimal(converToInt(expense.value), 2) }</td>
                 <td>{ splitString(expense.exchangeRates[expense.currency].name)[0] }</td>
                 <td>{ expense.currency }</td>
-                <td>
-                  {
-                    roundDecimal(
-                      converToInt(expense.exchangeRates[expense.currency].ask), 2,
-                    )
-                  }
-                </td>
+                <td>{ roundDecimal((updateValue(expense)), 2) }</td>
                 <td>{ splitString(expense.exchangeRates[expense.currency].name)[1] }</td>
               </tr>
             ))
