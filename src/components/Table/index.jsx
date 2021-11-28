@@ -17,6 +17,11 @@ class Table extends Component {
     this.buttons = this.renderButtons();
   }
 
+  handleDelete() {
+    const { deleteExpense } = this.props;
+    deleteExpense(id);
+  }
+
   renderButtons() {
     const { isDisabled } = this.state;
     return (
@@ -35,11 +40,6 @@ class Table extends Component {
         />
       </td>
     );
-  }
-
-  handleDelete() {
-    const { deleteExpense } = this.props;
-    deleteExpense(id);
   }
 
   render() {
@@ -69,7 +69,9 @@ class Table extends Component {
                 <td>{ expense.value }</td>
                 <td>{ splitString(expense.exchangeRates[expense.currency].name)[0] }</td>
                 <td>
-                  { roundDecimal(converToFloat(expense.exchangeRates[expense.currency].ask), 2)}
+                  { roundDecimal(
+                    converToFloat(expense.exchangeRates[expense.currency].ask), 2,
+                  )}
                 </td>
                 <td>{ roundDecimal((updateValue(expense)), 2) }</td>
                 <td>Real</td>
