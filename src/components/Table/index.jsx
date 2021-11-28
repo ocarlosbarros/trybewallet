@@ -1,26 +1,45 @@
-import { Button } from 'bootstrap';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from '../Button';
 import { splitString, roundDecimal, converToFloat, updateValue } from '../../handlers';
 import './index.css';
 
 class Table extends Component {
-  renderButton() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDisabled: false,
+    };
+  }
+
+  componentDidMount() {
+    this.buttons = this.renderButtons();
+  }
+
+  renderButtons() {
+    const { isDisabled } = this.state;
     return (
       <td>
         <Button
+          onClick={ this.handleDelete }
           dataTestId="delete-btn"
-          name="Excluir despesa"
           value="Excluir despesa"
+          disabled={ isDisabled }
         />
         <Button
+          onClick={ this.handleEdit }
           dataTestId="edit-btn"
-          name="Editar despesa"
           value="Editar despesa"
+          disabled={ isDisabled }
         />
       </td>
     );
+  }
+
+  handleDelete() {
+    const { deleteExpense } = this.props;
+    deleteExpense(id);
   }
 
   render() {
@@ -54,6 +73,7 @@ class Table extends Component {
                 </td>
                 <td>{ roundDecimal((updateValue(expense)), 2) }</td>
                 <td>Real</td>
+                { this.buttons }
               </tr>
             ))
           }
@@ -68,10 +88,15 @@ Table.defaultProps = {
 };
 
 Table.propTypes = {
+  deleteExpense: PropTypes.func.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.object),
 };
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
-export default connect(mapStateToProps)(Table);
+const mapDispatchToProps = (dispatch) => ({
+  deleteExpense: (id) => dispatch(deleteExpenseAction(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
