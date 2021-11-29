@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { actionDeleteExpenses } from '../../actions';
 import Button from '../Button';
 import { splitString, roundDecimal, converToFloat, updateValue } from '../../handlers';
 import './index.css';
@@ -13,26 +14,24 @@ class Table extends Component {
     };
   }
 
-  componentDidMount() {
-    this.buttons = this.renderButtons();
-  }
-
   handleDelete() {
     const { deleteExpense } = this.props;
     deleteExpense(id);
   }
 
-  renderButtons() {
+  renderButtons(id) {
     const { isDisabled } = this.state;
     return (
       <td>
         <Button
+          id={ id }
           onClick={ this.handleDelete }
           dataTestId="delete-btn"
           value="Excluir despesa"
           disabled={ isDisabled }
         />
         <Button
+          id={ id }
           onClick={ this.handleEdit }
           dataTestId="edit-btn"
           value="Editar despesa"
@@ -75,7 +74,6 @@ class Table extends Component {
                 </td>
                 <td>{ roundDecimal((updateValue(expense)), 2) }</td>
                 <td>Real</td>
-                { this.buttons }
               </tr>
             ))
           }
@@ -98,7 +96,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  deleteExpense: (id) => dispatch(deleteExpenseAction(id)),
+  deleteExpense: (id) => dispatch(actionDeleteExpenses(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
