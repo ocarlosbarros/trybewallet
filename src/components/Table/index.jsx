@@ -35,7 +35,6 @@ class Table extends Component {
 
   render() {
     const { expenses } = this.props;
-    const { isDisabled } = this.state;
     return (
       <table className="table">
         <thead>
