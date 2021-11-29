@@ -14,10 +14,6 @@ class Table extends Component {
     };
   }
 
-  componentDidMount() {
-    this.buttons = this.renderButtons();
-  }
-
   handleDelete(id) {
     const { deleteExpense } = this.props;
     deleteExpense(id);
@@ -71,12 +67,15 @@ class Table extends Component {
                 </td>
                 <td>{ roundDecimal((updateValue(expense)), 2) }</td>
                 <td>Real</td>
-                <Button
-                  onClick={ () => this.handleDelete(expense.id) }
-                  dataTestId="delete-btn"
-                  value="Excluir despesa"
-                  disabled={ isDisabled }
-                />
+                <td>
+                  <button
+                    onClick={ () => this.handleDelete(expense.id) }
+                    data-testid="delete-btn"
+                    type="button"
+                  >
+                    Excluir despesa
+                  </button>
+                </td>
               </tr>
             ))
           }
