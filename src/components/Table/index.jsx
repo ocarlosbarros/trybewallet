@@ -14,24 +14,20 @@ class Table extends Component {
     };
   }
 
-  handleDelete() {
+  componentDidMount() {
+    this.buttons = this.renderButtons();
+  }
+
+  handleDelete(id) {
     const { deleteExpense } = this.props;
     deleteExpense(id);
   }
 
-  renderButtons(id) {
+  renderButtons() {
     const { isDisabled } = this.state;
     return (
       <td>
         <Button
-          id={ id }
-          onClick={ this.handleDelete }
-          dataTestId="delete-btn"
-          value="Excluir despesa"
-          disabled={ isDisabled }
-        />
-        <Button
-          id={ id }
           onClick={ this.handleEdit }
           dataTestId="edit-btn"
           value="Editar despesa"
@@ -43,6 +39,7 @@ class Table extends Component {
 
   render() {
     const { expenses } = this.props;
+    const { isDisabled } = this.state;
     return (
       <table className="table">
         <thead>
@@ -74,6 +71,12 @@ class Table extends Component {
                 </td>
                 <td>{ roundDecimal((updateValue(expense)), 2) }</td>
                 <td>Real</td>
+                <Button
+                  onClick={ () => this.handleDelete(expense.id) }
+                  dataTestId="delete-btn"
+                  value="Excluir despesa"
+                  disabled={ isDisabled }
+                />
               </tr>
             ))
           }
