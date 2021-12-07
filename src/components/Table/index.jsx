@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { actionDeleteExpenses } from '../../actions';
-import Button from '../Button';
 import { splitString, roundDecimal, converToFloat, updateValue } from '../../handlers';
+import Modal from '../Modal';
+import TableButtons from '../TableButtons';
 import './index.css';
 
 class Table extends Component {
@@ -11,75 +13,72 @@ class Table extends Component {
     super(props);
     this.state = {
       isDisabled: false,
+      show: false,
     };
+    this.iddleModal = this.iddleModal.bind(this);
   }
 
-  handleDelete(id) {
-    const { deleteExpense } = this.props;
-    deleteExpense(id);
+  iddleModal() {
+    this.setState((prevState) => ({ show: !prevState.show }));
   }
 
-  renderButtons() {
-    const { isDisabled } = this.state;
+  renderTableHeader() {
     return (
-      <td>
-        <Button
-          onClick={ this.handleEdit }
-          dataTestId="edit-btn"
-          value="Editar despesa"
-          disabled={ isDisabled }
-        />
-      </td>
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Tag</th>
+          <th>Método de pagamento</th>
+          <th>Valor</th>
+          <th>Moeda</th>
+          <th>Câmbio utilizado</th>
+          <th>Valor convertido</th>
+          <th>Moeda de conversão</th>
+          <th>Editar/Excluir</th>
+        </tr>
+      </thead>
     );
   }
 
   render() {
     const { expenses } = this.props;
+    const { isDisabled, show } = this.state;
     return (
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Descrição</th>
-            <th>Tag</th>
-            <th>Método de pagamento</th>
-            <th>Valor</th>
-            <th>Moeda</th>
-            <th>Câmbio utilizado</th>
-            <th>Valor convertido</th>
-            <th>Moeda de conversão</th>
-            <th>Editar/Excluir</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            expenses.map((expense, index) => (
-              <tr key={ `${expense.id}-${index}` }>
-                <td>{ expense.description }</td>
-                <td>{ expense.tag }</td>
-                <td>{ expense.method }</td>
-                <td>{ expense.value }</td>
-                <td>{ splitString(expense.exchangeRates[expense.currency].name)[0] }</td>
-                <td>
-                  { roundDecimal(
-                    converToFloat(expense.exchangeRates[expense.currency].ask), 2,
-                  )}
-                </td>
-                <td>{ roundDecimal((updateValue(expense)), 2) }</td>
-                <td>Real</td>
-                <td>
-                  <button
-                    onClick={ () => this.handleDelete(expense.id) }
-                    data-testid="delete-btn"
-                    type="button"
-                  >
-                    Excluir despesa
-                  </button>
-                </td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
+      <section>
+        <table className="table">
+          { this.renderTableHeader() }
+          <tbody>
+            {
+              expenses.map((expense, index) => (
+                <tr key={ `${expense.id}-${index}` }>
+                  <td>{ expense.description }</td>
+                  <td>{ expense.tag }</td>
+                  <td>{ expense.method }</td>
+                  <td>{ expense.value }</td>
+                  <td>
+                    { splitString(expense.exchangeRates[expense.currency].name)[0] }
+                  </td>
+                  <td>
+                    { roundDecimal(
+                      converToFloat(expense.exchangeRates[expense.currency].ask), 2,
+                    )}
+                  </td>
+                  <td>{ roundDecimal((updateValue(expense)), 2) }</td>
+                  <td>Real</td>
+                  <td>
+                    <TableButtons
+                      disabled={ isDisabled }
+                      expense={ expense }
+                      onClick={ this.iddleModal }
+                    />
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+        <Modal show={ show } />
+      </section>
     );
   }
 }
@@ -89,7 +88,6 @@ Table.defaultProps = {
 };
 
 Table.propTypes = {
-  deleteExpense: PropTypes.func.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.object),
 };
 const mapStateToProps = (state) => ({
