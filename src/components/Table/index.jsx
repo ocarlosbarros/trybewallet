@@ -66,7 +66,7 @@ class Table extends Component {
           value="Editar"
           disabled={ isDisabled }
         >
-          Editar despesa
+          Editar
         </button>
         <button
           onClick={ () => this.handleDelete(expense.id) }
