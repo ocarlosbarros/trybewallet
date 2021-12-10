@@ -2,10 +2,9 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { actionDeleteExpenses } from '../../actions';
+import { actionDeleteExpenses, actionEditExpenses } from '../../actions';
 import { splitString, roundDecimal, converToFloat, updateValue } from '../../handlers';
 import Modal from '../Modal';
-import TableButtons from '../TableButtons';
 import './index.css';
 
 class Table extends Component {
@@ -16,10 +15,48 @@ class Table extends Component {
       show: false,
     };
     this.iddleModal = this.iddleModal.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   iddleModal() {
     this.setState((prevState) => ({ show: !prevState.show }));
+  }
+
+  handleDelete(id) {
+    const { deleteExpense } = this.props;
+    deleteExpense(id);
+  }
+
+  handleEdit(expense) {
+    const { editExpense } = this.props;
+    editExpense(expense.id);
+  }
+
+  renderButtons(expense) {
+    const { isDisabled } = this.state;
+    return (
+      <>
+        <button
+          onClick={ () => this.handleEdit(expense.id) }
+          data-testid="edit-btn"
+          type="button"
+          value="Editar"
+          disabled={ isDisabled }
+        >
+          Editar
+        </button>
+        <button
+          onClick={ () => this.handleDelete(expense.id) }
+          data-testid="delete-btn"
+          type="button"
+          disabled={ isDisabled }
+          value="Excluir despesa"
+        >
+          Excluir despesa
+        </button>
+      </>
+    );
   }
 
   renderTableHeader() {
@@ -42,7 +79,7 @@ class Table extends Component {
 
   render() {
     const { expenses } = this.props;
-    const { isDisabled, show } = this.state;
+    const { show } = this.state;
     return (
       <section>
         <table className="table">
@@ -66,11 +103,7 @@ class Table extends Component {
                   <td>{ roundDecimal((updateValue(expense)), 2) }</td>
                   <td>Real</td>
                   <td>
-                    <TableButtons
-                      disabled={ isDisabled }
-                      expense={ expense }
-                      onClick={ this.iddleModal }
-                    />
+                    { this.renderButtons(expense) }
                   </td>
                 </tr>
               ))
@@ -88,14 +121,25 @@ Table.defaultProps = {
 };
 
 Table.propTypes = {
-  expenses: PropTypes.arrayOf(PropTypes.object),
+  expenses: PropTypes.arrayOf(PropTypes.shape({
+    currency: PropTypes.string,
+    description: PropTypes.string,
+    id: PropTypes.number,
+    method: PropTypes.string,
+    tag: PropTypes.string,
+    value: PropTypes.string,
+  })),
+  deleteExpense: PropTypes.func.isRequired,
+  editExpense: PropTypes.func.isRequired,
 };
+
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   deleteExpense: (id) => dispatch(actionDeleteExpenses(id)),
+  editExpense: (id) => dispatch(actionEditExpenses(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
