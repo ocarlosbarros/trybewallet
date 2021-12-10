@@ -31,8 +31,8 @@ const walletReducer = (state = INITIAL_STATE, action) => {
   case EDIT_EXPENSE:
     return {
       ...state,
-      expenses: [action.payload, ...state.expenses
-        .filter((expense) => action.payload.id !== expense.id)],
+      expenses: [...state.expenses
+        .filter((expense) => action.payload.id !== expense.id).concat(action.payload)],
     };
 
   case GET_CURRENCIES: {

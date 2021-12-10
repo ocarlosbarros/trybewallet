@@ -62,7 +62,9 @@ class Form extends Component {
 }
 
 Form.propTypes = {
-  currencies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  currencies: PropTypes.arrayOf(
+    PropTypes.string,
+  ).isRequired,
   expense: PropTypes.shape({
     currency: PropTypes.string,
     description: PropTypes.string,

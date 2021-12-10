@@ -32,7 +32,8 @@ class Modal extends Component {
   }
 
   render() {
-    const { show, expense: { value, currency, description }, onChange, currencies } = this.props;
+    const { show, expense: { value, currency, description },
+      onChange, currencies } = this.props;
     if (!show) return '';
     return (
       <div className="modal">
@@ -68,16 +69,19 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-  show: PropTypes.bool.isRequired,
-  expense: PropTypes.objectOf(PropTypes.shape({
+  currencies: PropTypes.arrayOf(
+    PropTypes.string,
+  ).isRequired,
+  expense: PropTypes.shape({
     description: PropTypes.string,
     currency: PropTypes.string,
     id: PropTypes.number,
     method: PropTypes.string,
     tag: PropTypes.string,
     value: PropTypes.string,
-  })).isRequired,
+  }).isRequired,
   onChange: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
