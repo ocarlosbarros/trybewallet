@@ -11,16 +11,30 @@ class Table extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      expense: {
+        id: 0,
+        currency: 'USD',
+        description: '',
+        method: 'Dinheiro',
+        tag: 'Alimentação',
+        value: '',
+      },
       isDisabled: false,
       show: false,
     };
     this.iddleModal = this.iddleModal.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  iddleModal() {
-    this.setState((prevState) => ({ show: !prevState.show }));
+  iddleModal(currentExpense) {
+    this.setState((prevState) => ({ show: !prevState.show, expense: currentExpense }));
+    const { editExpense } = this.props;
+    const { show, expense } = this.state;
+    if (show) {
+      editExpense(expense);
+    }
   }
 
   handleDelete(id) {
@@ -29,8 +43,16 @@ class Table extends Component {
   }
 
   handleEdit(expense) {
-    const { editExpense } = this.props;
-    editExpense(expense.id);
+    this.iddleModal(expense);
+  }
+
+  handleChange({ target: { name, value } }) {
+    this.setState((prevState) => ({
+      expense: {
+        ...prevState.expense,
+        [name]: value,
+      },
+    }));
   }
 
   renderButtons(expense) {
@@ -38,13 +60,13 @@ class Table extends Component {
     return (
       <>
         <button
-          onClick={ () => this.handleEdit(expense.id) }
+          onClick={ () => this.handleEdit(expense) }
           data-testid="edit-btn"
           type="button"
           value="Editar"
           disabled={ isDisabled }
         >
-          Editar
+          Editar despesa
         </button>
         <button
           onClick={ () => this.handleDelete(expense.id) }
@@ -79,38 +101,42 @@ class Table extends Component {
 
   render() {
     const { expenses } = this.props;
-    const { show } = this.state;
+    const { show, expense } = this.state;
     return (
       <section>
         <table className="table">
           { this.renderTableHeader() }
           <tbody>
             {
-              expenses.map((expense, index) => (
-                <tr key={ `${expense.id}-${index}` }>
-                  <td>{ expense.description }</td>
-                  <td>{ expense.tag }</td>
-                  <td>{ expense.method }</td>
-                  <td>{ expense.value }</td>
+              expenses.map((currentExpense, index) => (
+                <tr key={ `${currentExpense.id}-${index}` }>
+                  <td>{ currentExpense.description }</td>
+                  <td>{ currentExpense.tag }</td>
+                  <td>{ currentExpense.method }</td>
+                  <td>{ currentExpense.value }</td>
                   <td>
-                    { splitString(expense.exchangeRates[expense.currency].name)[0] }
+                    {
+                      splitString(currentExpense
+                        .exchangeRates[currentExpense.currency].name)[0]
+                    }
                   </td>
                   <td>
                     { roundDecimal(
-                      converToFloat(expense.exchangeRates[expense.currency].ask), 2,
+                      converToFloat(currentExpense
+                        .exchangeRates[currentExpense.currency].ask), 2,
                     )}
                   </td>
-                  <td>{ roundDecimal((updateValue(expense)), 2) }</td>
+                  <td>{ roundDecimal((updateValue(currentExpense)), 2) }</td>
                   <td>Real</td>
                   <td>
-                    { this.renderButtons(expense) }
+                    { this.renderButtons(currentExpense) }
                   </td>
                 </tr>
               ))
             }
           </tbody>
         </table>
-        <Modal show={ show } />
+        <Modal show={ show } expense={ expense } onChange={ this.handleChange } />
       </section>
     );
   }
