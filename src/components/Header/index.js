@@ -9,7 +9,7 @@ class Header extends Component {
     const { email, expenses } = this.props;
     return (
       <header>
-        <h2>
+        <h2 className="title">
           <img src="/trybewallet-logo.jpeg" alt="logo trybe wallet" />
         </h2>
         <p data-testid="email-field">{`Email:  ${email}`}</p>

@@ -1,27 +1,27 @@
 header {
-  align-items: center;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+	align-items: center;
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
 
-h2 {
-  flex-grow: 1;
-  width: 60%;
+.title {
+	flex-grow: 1;
+	width: 60%;
 }
 
 p {
-  flex-grow: 1;
+	flex-grow: 1;
 }
 
 ul {
-  display: flex;
-  flex-grow: 1;
-  list-style-type: none;
-  padding: 1em;
+	display: flex;
+	flex-grow: 1;
+	list-style-type: none;
+	padding: 1em;
 }
 
 ul > li {
-  margin-left: 2em;
+	margin-left: 2em;
 }
