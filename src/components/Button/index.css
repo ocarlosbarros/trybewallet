@@ -1,0 +1,18 @@
+.btn-login {
+	color: #fff;
+	width: 102%;
+	height: 60px;
+	font-size: 1.5em;
+	border: none;
+	margin-top: 1em;
+	background: #07aa6d;
+}
+
+.btn-login:hover {
+	background: #02c245;
+}
+
+.btn-login:disabled {
+	background: #07aa6d;
+	filter: blur(0.9px);
+}
