@@ -1,0 +1,22 @@
+.input-login {
+	width: 100%;
+	height: 40px;
+}
+
+.input-login[type="text"],
+.input-login[type="email"],
+.input-login[type="password"] {
+	font-size: 1em;
+	padding: 0.2em;
+	margin-top: 0.5em;
+}
+
+.input-login[type="text"]:focus,
+.input-login[type="email"]:focus,
+.input-login[type="password"]:focus {
+	outline-color: #07aa6d;
+}
+
+.input-login > label {
+	font-size: 1.5em;
+}
