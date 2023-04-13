@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import './index.css';
+
 class Button extends Component {
   render() {
-    const { name, dataTestId, value, textLabel, disabled, onClick } = this.props;
+    const {
+      name,
+      dataTestId,
+      value,
+      textLabel,
+      disabled,
+      onClick,
+      className } = this.props;
     return (
       <label htmlFor={ name }>
         { textLabel }
         <button
+          className={ className }
           name={ name }
           type="button"
           id={ name }
@@ -25,6 +35,7 @@ class Button extends Component {
 
 Button.defaultProps = {
   name: '',
+  className: '',
   dataTestId: '',
   value: '',
   textLabel: '',
@@ -34,6 +45,7 @@ Button.defaultProps = {
 
 Button.propTypes = {
   name: PropTypes.string,
+  className: PropTypes.string,
   dataTestId: PropTypes.string,
   value: PropTypes.string,
   textLabel: PropTypes.string,
