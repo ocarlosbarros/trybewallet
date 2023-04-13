@@ -7,6 +7,8 @@ import { loginAction } from '../actions';
 import Button from '../components/Button';
 import Input from '../components/Input';
 
+import './Login.css';
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -71,31 +73,36 @@ class Login extends React.Component {
     if (loggedIn) return <Redirect to="/carteira" />;
 
     return (
-      <article>
+      <article className="body-login">
         <h2>Login</h2>
-        <Input
-          name="email"
-          type="email"
-          dataTestId="email-input"
-          textLabel="Email:"
-          value={ email }
-          onChange={ this.handleChange }
-        />
-        <Input
-          name="password"
-          type="password"
-          dataTestId="password-input"
-          textLabel="Senha:"
-          value={ password }
-          onChange={ this.handleChange }
-        />
-        <Button
-          name="login"
-          dataTestId="login"
-          value="Entrar"
-          disabled={ disabled }
-          onClick={ this.handleClick }
-        />
+        <form className="form-login" action="">
+          <Input
+            className="input-login"
+            name="email"
+            type="email"
+            dataTestId="email-input"
+            textLabel="Email"
+            value={ email }
+            onChange={ this.handleChange }
+          />
+          <Input
+            className="input-login"
+            name="password"
+            type="password"
+            dataTestId="password-input"
+            textLabel="Senha"
+            value={ password }
+            onChange={ this.handleChange }
+          />
+          <Button
+            className="btn-login"
+            name="login"
+            dataTestId="login"
+            value="Entrar"
+            disabled={ disabled }
+            onClick={ this.handleClick }
+          />
+        </form>
       </article>
     );
   }
