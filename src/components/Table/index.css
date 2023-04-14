@@ -1,13 +1,17 @@
 .table {
-  border: 1px solid black;
-  width: 100%;
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 .table tr {
-  margin: 1em;
+	margin: 1em;
+	border: 1px solid black;
+	height: 25px;
 }
 
-.table th {
-  background-color: rgba(87, 101, 116, 1);
-  padding: 0.5em;
+.table th,
+td {
+	border: 1px solid black;
+	padding: 0.5em;
 }
