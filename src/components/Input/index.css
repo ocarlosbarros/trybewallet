@@ -20,3 +20,20 @@
 .input-login > label {
 	font-size: 1.5em;
 }
+
+.input-wallet {
+	margin: 1em 1em;
+	height: 20px;
+}
+
+.input-small {
+	width: 50px;
+}
+
+.input-medium {
+	width: 100px;
+}
+
+.input-lg {
+	width: 250px;
+}
