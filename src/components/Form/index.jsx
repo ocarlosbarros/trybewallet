@@ -10,13 +10,16 @@ class Form extends Component {
     return (
       <>
         <Select
+          className="select-wallet"
           name="method"
+          textLabel="Método de pagamento"
           dataTestId="method-input"
           options={ ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'] }
           value={ method }
           onChange={ onChange }
         />
         <Select
+          className="select-wallet"
           name="tag"
           dataTestId="tag-input"
           options={ ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'] }
@@ -32,16 +35,18 @@ class Form extends Component {
     return (
       <form>
         <Input
+          className="input-wallet input-medium"
           name="value"
-          textLabel="Valor:"
+          textLabel="Valor"
           type="number"
           dataTestId="value-input"
           value={ value.toString() }
           onChange={ onChange }
         />
         <Select
+          className="select-wallet"
           name="currency"
-          textLabel="Moeda:"
+          textLabel="Moeda"
           dataTestId="currency-input"
           options={ [...currencies] }
           value={ currency }
@@ -49,8 +54,9 @@ class Form extends Component {
         />
         { this.renderSelects() }
         <Input
+          className="input-wallet input-lg"
           name="description"
-          textLabel="Descricao"
+          textLabel="Descrição"
           type="text"
           dataTestId="description-input"
           value={ description }
