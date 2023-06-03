@@ -22,13 +22,13 @@ The Trybewallet is a currency converter expense control wallet.
 
 ## Features
 
--   [x] Login with email in format 'string@string.com'
--   [x] Login with password greater and equal 6
--   [x] Add, an expense
--   [x] View a table with your expenses
--   [x] Remove an expense
--   [ ]  Edit an expense
--   [x] View total spend converted to BRL (Brazilian Real) currency
+- [x] Login with email in format 'string@string.com'
+- [x] Login with password greater and equal 6
+- [x] Add, an expense
+- [x] View a table with your expenses
+- [x] Remove an expense
+- [ ]  Edit an expense
+- [x] View total spend converted to BRL (Brazilian Real) currency
 
 ## Screenshots
 
