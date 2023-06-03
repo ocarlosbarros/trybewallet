@@ -1,5 +1,4 @@
 <div align="center">
-
 # Trybewallet
 
 ![Trybe Wallet Web Application](./src/assets/login-app.gif)
