@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { FaTimes } from 'react-icons/fa';
 import Input from '../Input';
 import Select from '../Select';
+import Button from '../Button';
 
 import './index.css';
 
@@ -37,8 +39,8 @@ class Modal extends Component {
     if (!show) return '';
     return (
       <div className="modal">
-        <h2>Editar despesa</h2>
-        {/* <Form expense={ expense } onChange={ onChange } /> */}
+        <h3>Editar despesa</h3>
+        <FaTimes />
         <form>
           <Input
             name="value"
@@ -57,10 +59,24 @@ class Modal extends Component {
           { this.renderSelects() }
           <Input
             name="description"
-            textLabel="Descricao"
+            textLabel="Descrição"
             type="text"
             value={ description }
             onChange={ onChange }
+          />
+          <Button
+            name="Salvar"
+            value="Salvar"
+            textLabel=""
+            disabled=""
+            onClick={ () => {} }
+          />
+          <Button
+            name="Cancelar"
+            value="Cancelar"
+            textLabel=""
+            disabled=""
+            onClick={ () => {} }
           />
         </form>
       </div>
