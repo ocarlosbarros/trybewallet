@@ -3,9 +3,11 @@
 #   Trybewallet
 [![ocarlosbarros - trybewallet](https://img.shields.io/static/v1?label=ocarlosbarros&message=trybewallet&color=2eac6f&style=for-the-badge&logo=github)](https://github.com/ocarlosbarros/trybewallet "Go to GitHub repo")
 <img src="http://img.shields.io/static/v1?label=status&message=in%20development&color=2eac6f&style=for-the-badge"/>
+<img src="http://img.shields.io/static/v1?label=license&message=MIT&color=2eac6f&style=for-the-badge"/>
 
-[![stars - trybewallet](https://img.shields.io/github/stars/ocarlosbarros/trybewallet?style=social)](https://github.com/ocarlosbarros/trybewallet)
 [![forks - trybewallet](https://img.shields.io/github/forks/ocarlosbarros/trybewallet?style=social)](https://github.com/ocarlosbarros/trybewallet)
+[![stars - trybewallet](https://img.shields.io/github/stars/ocarlosbarros/trybewallet?style=social)](https://github.com/ocarlosbarros/trybewallet)
+
 ![Trybe Wallet Web Application](./src/assets/login-app.gif)
 </div>
 
