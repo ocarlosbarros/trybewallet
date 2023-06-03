@@ -17,14 +17,18 @@
     * [Available Scripts](#available-scripts)
 
 
-# About project
+# :point_right:	 About project
 The Trybewallet is a currency converter expense control wallet.
 
 ## Features
 
-* Add, remove and edit an expense
-* View a table with your expenses
-* View total spend converted to BRL (Brazilian Real) currency
+-   [x] Login with email in format 'string@string.com'
+-   [x] Login with password greater and equal 6
+-   [x] Add, an expense
+-   [x] View a table with your expenses
+-   [x] Remove an expense
+-   []  Edit an expense
+-   [x] View total spend converted to BRL (Brazilian Real) currency
 
 ## Screenshots
 
@@ -38,7 +42,7 @@ The Trybewallet is a currency converter expense control wallet.
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
 
-# :hammer:  Built with
+# :hammer_and_wrench:  Built with
 
 This project was bootstrapped with Create React App.
 
