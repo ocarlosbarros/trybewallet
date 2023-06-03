@@ -126,6 +126,7 @@ Carlos Barros - @o_carlosbarros - carlos_dbs@hotmail.com
 
 # :page_facing_up: License
 
+Trybewallet is "NAME" licensed
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
 
