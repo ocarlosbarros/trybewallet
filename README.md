@@ -81,6 +81,8 @@ node -v & git --version
 
 This command should return node and git version installed in your computer.
 
+<p align="right"><a href="#trybewallet">back to top</a></p>
+
 ##  :gear: Run Application 
 
 1. Clone project
