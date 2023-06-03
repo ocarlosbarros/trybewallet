@@ -6,6 +6,7 @@
 </div>
 
 # :clipboard: Table of Contents
+
 * [About Project](#about-project)
     * [Features](#features)
     * [Screenshots](#screenshots)
@@ -16,11 +17,11 @@
     * [Run Application](#run-application)
     * [Available Scripts](#available-scripts)
 
+# :point_right: About project
 
-# :point_right:	 About project
 The Trybewallet is a currency converter expense control wallet.
 
-## Features
+## :heavy_check_mark: Features
 
 - [x] Login with email in format 'string@string.com'
 - [x] Login with password greater and equal 6
@@ -30,7 +31,9 @@ The Trybewallet is a currency converter expense control wallet.
 - [ ]  Edit an expense
 - [x] View total spend converted to BRL (Brazilian Real) currency
 
-## Screenshots
+<p align="right"><a href="#trybewallet">back to top</a></p>
+
+## :camera: Screenshots
 
 ### Login
 
@@ -46,7 +49,7 @@ The Trybewallet is a currency converter expense control wallet.
 
 This project was bootstrapped with Create React App.
 
-* ## Technologies and Libs
+* ## :computer: Technologies and Libs
     - React
     - React Icon
     - React Router
@@ -62,7 +65,7 @@ This project was bootstrapped with Create React App.
 
 These instructions will allow you to get a copy of the project on your local machine for development and testing purposes.
 
-## Requirements
+## :warning: Requirements
 
 Before starting, you need to have Node.js and Git installed on your computer. You can download them at
 https://nodejs.org and https://git-scm.com/downloads. 
@@ -75,7 +78,7 @@ node -v & git --version
 
 This command should return node and git version installed in your computer.
 
-## Run Application
+## :gear: Run Application
 
 1. Clone project
     ```
@@ -99,7 +102,7 @@ This command should return node and git version installed in your computer.
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
 
-## Available Scripts
+## :robot: Available Scripts
 
 In the project directory, you can run:
 
