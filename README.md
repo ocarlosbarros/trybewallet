@@ -16,6 +16,10 @@
     * [Requirements](#requirements)
     * [Run Application](#run-application)
     * [Available Scripts](#available-scripts)
+* [Tests](#tests)
+* [Contacts](#contacts)
+* [License](#license)
+
 
 # :point_right: About project
 
@@ -107,19 +111,33 @@ This command should return node and git version installed in your computer.
 In the project directory, you can run:
 
 ```
-npm install && npm start
+npm start
 ```
-
-```
-npm run build
-```
+Runs the app in the development mode. Open http://localhost:3000 to view it in your browser.
 
 ```
 npm test
 ```
+Launches the test runner in the interactive watch mode. See the section about [Tests](#tests).
+
+```
+npm run build
+```
+Builds the app for production to the build folder.
 
 ```
 npm run eject
+```
+If you aren’t satisfied with the build tool and configuration choices, you can eject at any time. This command will remove the single build dependency from your project. More information in [Create React App Doc](https://create-react-app.dev/docs/available-scripts/#npm-run-eject)
+
+<p align="right"><a href="#trybewallet">back to top</a></p>
+
+## :test_tube: Tests
+
+To run tests, run the following command
+
+```
+npm test
 ```
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
@@ -139,7 +157,7 @@ npm run eject
 
 # :page_facing_up: License
 
-Trybewallet is "NAME" licensed
+Trybewallet is not licensed
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
 
