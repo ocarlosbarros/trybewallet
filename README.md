@@ -161,7 +161,7 @@ Trybewallet is MIT Licensed. See ```LICENSE.md``` for more information.
 
 # :octocat: Developers 
 
-<a href="https://ocarlosbarros.github.io">
+<a href="https://ocarlosbarros.github.io" target="_blank">
  <div>
     <img style="border-radius: 50%;" src="https://ocarlosbarros.github.io/assets/profile-9441771d.png" width="100px;" alt=""/>
     <br />
