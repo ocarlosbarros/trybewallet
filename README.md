@@ -6,25 +6,24 @@
 
 # :clipboard: Table of Contents
 
-* [About Project](#about-project)
-    * [Features](#features)
-    * [Screenshots](#screenshots)
-* [Built With](#built-with)
-    * [Technologies and Libs](#technologies-and-libs)
-* [Getting Started](#getting-started)
-    * [Requirements](#requirements)
-    * [Run Application](#run-application)
-    * [Available Scripts](#available-scripts)
-* [Tests](#tests)
-* [Contacts](#contacts)
-* [License](#license)
+* [About Project](#point_right-about-project)
+    * [Features](#heavy_check_mark-features)
+    * [Screenshots](#camera-screenshots)
+* [Built With](#hammer_and_wrench-built-with)
+    * [Technologies and Libs](#computer-technologies-and-libs)
+* [Getting Started](#rocket-getting-started)
+    * [Requirements](#warning-requirements)
+    * [Run Application](#gear-run-application)
+    * [Available Scripts](#robot-available-scripts)
+* [Tests](#test_tube-tests)
+* [Contacts](#telephone_receiver-contacts)
+* [License](#page_facing_up-license)
 
-
-# :point_right: About project
+#   :point_right: About project
 
 The Trybewallet is a currency converter expense control wallet.
 
-## :heavy_check_mark: Features
+##  :heavy_check_mark: Features 
 
 - [x] Login with email in format 'string@string.com'
 - [x] Login with password greater and equal 6
@@ -36,7 +35,7 @@ The Trybewallet is a currency converter expense control wallet.
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
 
-## :camera: Screenshots
+##  :camera: Screenshots 
 
 ### Login
 
@@ -48,11 +47,11 @@ The Trybewallet is a currency converter expense control wallet.
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
 
-# :hammer_and_wrench:  Built with
+#   :hammer_and_wrench: Built with 
 
 This project was bootstrapped with Create React App.
 
-* ## :computer: Technologies and Libs
+* ##    :computer: Technologies and Libs 
     - React
     - React Icon
     - React Router
@@ -64,11 +63,11 @@ This project was bootstrapped with Create React App.
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
 
-# :rocket: Getting Started
+#   :rocket: Getting Started 
 
 These instructions will allow you to get a copy of the project on your local machine for development and testing purposes.
 
-## :warning: Requirements
+##  :warning: Requirements 
 
 Before starting, you need to have Node.js and Git installed on your computer. You can download them at
 https://nodejs.org and https://git-scm.com/downloads. 
@@ -81,7 +80,7 @@ node -v & git --version
 
 This command should return node and git version installed in your computer.
 
-## :gear: Run Application
+##  :gear: Run Application 
 
 1. Clone project
     ```
@@ -105,7 +104,7 @@ This command should return node and git version installed in your computer.
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
 
-## :robot: Available Scripts
+## :robot: Available Scripts 
 
 In the project directory, you can run:
 
@@ -131,7 +130,7 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
 
-## :test_tube: Tests
+##  :test_tube: Tests 
 
 To run tests, run the following command
 
@@ -141,7 +140,7 @@ npm test
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
 
-# :telephone_receiver: Contacts
+# :telephone_receiver: Contacts 
 
 <div align="left">
 <a href="https://www.linkedin.com/in/ocarlosbarros" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
@@ -154,7 +153,7 @@ npm test
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
 
-# :page_facing_up: License
+#   :page_facing_up: License 
 
 Trybewallet is not licensed
 
