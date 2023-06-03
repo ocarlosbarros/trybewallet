@@ -5,30 +5,58 @@
 ![Trybe Wallet Web Application](./src/assets/login-app.gif)
 </div>
 
-# Table of Contents
+# :clipboard: Table of Contents
 * [About Project](#about-project)
-* [Starting](#starting)
-* [Requirements](#requirements)
+    * [Features](#features)
+    * [Screenshots](#screenshots)
+* [Built With](#built-with)
+    * [Technologies and Libs](#technologies-and-libs)
 * [Getting Started](#getting-started)
-* [Available Scripts](#available-scripts)
-* [Technologies and Libs](#technologies-and-libs)
-* [Screenshots](#screenshots)
-* [Features](#features)
+    * [Requirements](#requirements)
+    * [Run Application](#run-application)
+    * [Available Scripts](#available-scripts)
+
 
 # About project
 The Trybewallet is a currency converter expense control wallet.
 
-# Features
+## Features
 
 * Add, remove and edit an expense
 * View a table with your expenses
 * View total spend converted to BRL (Brazilian Real) currency
 
-# :rocket: Starting
+## Screenshots
+
+### Login
+
+![Trybe Wallet Web Application](./src/assets/login-page.png)
+
+### Wallet
+
+![Trybe Wallet Web Application](./src/assets/wallet-page.png)
+
+# :hammer:  Built with
+
+This project was bootstrapped with Create React App.
+
+* ## Technologies and Libs
+    - React
+    - React Icon
+    - React Router
+    - React Redux
+    - Redux
+    - Redux Devtools Extension
+    - Redux Thunk
+    - Stylelint
+
+<p align="right"><a href="#trybewallet">back to top</a></p>
+
+# :rocket: Getting Started
 
 These instructions will allow you to get a copy of the project on your local machine for development and testing purposes.
 
-# Requirements
+## Requirements
 
 Before starting, you need to have Node.js and Git installed on your computer. You can download them at
 https://nodejs.org and https://git-scm.com/downloads. 
@@ -41,9 +69,7 @@ node -v & git --version
 
 This command should return node and git version installed in your computer.
 
-# Getting Started 
-
-This project was bootstrapped with Create React App.
+## Run Application
 
 1. Clone project
     ```
@@ -65,7 +91,9 @@ This project was bootstrapped with Create React App.
     npm start
     ```
 
-# Available Scripts
+<p align="right"><a href="#trybewallet">back to top</a></p>
+
+## Available Scripts
 
 In the project directory, you can run:
 
@@ -85,26 +113,18 @@ npm test
 npm run eject
 ```
 
-# Technologies and Libs
+<p align="right"><a href="#trybewallet">back to top</a></p>
 
-- React
-- React Icon
-- React Router
-- React Redux
-- Redux
-- Redux Devtools Extension
-- Redux Thunk
-- Stylelint
+# :telephone_receiver: Contact
 
-# Screenshots
-
-## Login
-
-![Trybe Wallet Web Application](./src/assets/login-page.png)
-
-## Wallet
-
-![Trybe Wallet Web Application](./src/assets/wallet-page.png)
+Carlos Barros - @o_carlosbarros - carlos_dbs@hotmail.com
 
 
-This project was created with React - Redux and 💜
+<p align="right"><a href="#trybewallet">back to top</a></p>
+
+# :page_facing_up: License
+
+
+<p align="right"><a href="#trybewallet">back to top</a></p>
+
+With 💜 by Carlos Barros 
