@@ -1,0 +1,11 @@
+.modal-header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.icon-close {
+  position:relative;
+  top: -8px;
+  right: -92px;
+}
