@@ -28,6 +28,10 @@
   height:30px;
 }
 
+.modal form input {
+  padding:0.3em;
+}
+
 .modal form select {
   height:35px;
 }
