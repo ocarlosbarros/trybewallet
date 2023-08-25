@@ -141,6 +141,7 @@ class Table extends Component {
           show={ show }
           expense={ expense }
           onChange={ this.handleChange }
+          onClick={ this.handleEdit }
         />
       </section>
     );

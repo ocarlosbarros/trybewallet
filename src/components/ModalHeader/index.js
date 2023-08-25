@@ -7,11 +7,14 @@ import './index.css';
 
 class ModalHeader extends Component {
   render() {
-    const { title } = this.props;
+    const { title, onClick } = this.props;
     return (
       <div className="modal-header">
         <h3>{ title }</h3>
-        <FaTimes className="icon-close" />
+        <FaTimes
+          className="icon-close"
+          onClick={ onClick }
+        />
       </div>
     );
   }
@@ -19,6 +22,7 @@ class ModalHeader extends Component {
 
 ModalHeader.propTypes = {
   title: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ModalHeader;
