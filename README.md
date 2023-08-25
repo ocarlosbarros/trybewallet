@@ -39,6 +39,8 @@ The Trybewallet is a currency converter expense control wallet.
 - [x] Remove an expense
 - [x]  Edit an expense
 - [x] View total spend converted to BRL (Brazilian Real) currency
+- [] Implement test scripts
+
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
 
@@ -125,6 +127,8 @@ Runs the app in the development mode. Open http://localhost:3000 to view it in y
 ```
 npm test
 ```
+* Tests have not been implemented yet.
+
 Launches the test runner in the interactive watch mode. See the section about [Tests](#tests).
 
 ```
