@@ -22,13 +22,13 @@ class Table extends Component {
       isDisabled: false,
       show: false,
     };
-    this.iddleModal = this.iddleModal.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  iddleModal(currentExpense) {
+  toggleModal(currentExpense) {
     this.setState((prevState) => ({ show: !prevState.show, expense: currentExpense }));
     const { editExpense } = this.props;
     const { show, expense } = this.state;
@@ -43,7 +43,7 @@ class Table extends Component {
   }
 
   handleEdit(expense) {
-    this.iddleModal(expense);
+    this.toggleModal(expense);
   }
 
   handleChange({ target: { name, value } }) {
@@ -142,6 +142,7 @@ class Table extends Component {
           expense={ expense }
           onChange={ this.handleChange }
           onClick={ this.handleEdit }
+          onToggle={ () => this.setState((prevState) => ({ show: !prevState.show })) }
         />
       </section>
     );
