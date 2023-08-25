@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { addExpenses, getCurrenciesAction } from '../actions';
 
 import Button from '../components/Button';
 import Header from '../components/Header';
 import Row from '../components/Row';
 import Form from '../components/Form';
-import { addExpenses, getCurrenciesAction } from '../actions';
 import Table from '../components/Table';
+
+import './Wallet.css';
+import Footer from '../components/Footer';
 
 class Wallet extends React.Component {
   constructor(props) {
@@ -53,22 +56,25 @@ class Wallet extends React.Component {
   render() {
     const { expense } = this.state;
     return (
-      <section>
-        <Header />
-        <Row>
-          <Form expense={ expense } onChange={ this.handleChange } />
-          <Button
-            dataTestId=""
-            name="Adicionar despesa"
-            value="Adicionar despesa"
-            disabled={ false }
-            onClick={ this.handleClick }
-          />
-        </Row>
-        <article>
-          <Table expense={ expense } onChange={ this.handleChange } />
-        </article>
-      </section>
+      <>
+        <section>
+          <Header />
+          <Row>
+            <Form expense={ expense } onChange={ this.handleChange } />
+            <Button
+              dataTestId=""
+              name="Adicionar despesa"
+              value="Adicionar despesa"
+              disabled={ false }
+              onClick={ this.handleClick }
+            />
+          </Row>
+          <article>
+            <Table expense={ expense } onChange={ this.handleChange } />
+          </article>
+        </section>
+        <Footer />
+      </>
     );
   }
 }
