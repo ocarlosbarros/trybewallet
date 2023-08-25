@@ -136,7 +136,12 @@ class Table extends Component {
             }
           </tbody>
         </table>
-        <Modal show={ show } expense={ expense } onChange={ this.handleChange } />
+        <Modal
+          className="modal"
+          show={ show }
+          expense={ expense }
+          onChange={ this.handleChange }
+        />
       </section>
     );
   }

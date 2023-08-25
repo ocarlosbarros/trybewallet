@@ -1,11 +1,14 @@
 .modal-header {
   display: flex;
-  justify-content: center;
-  width: 100%;
+  align-items:stretch;
+  padding:1em;
+  width:100%;
+}
+
+.modal-header h3 {
+  flex-grow:2;
 }
 
 .icon-close {
-  position:relative;
-  top: -8px;
-  right: -92px;
+  margin:0;
 }

@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FaTimes } from 'react-icons/fa';
+
 import Input from '../Input';
 import Select from '../Select';
 import Button from '../Button';
+import ModalHeader from '../ModalHeader';
 
 import './index.css';
 
@@ -20,12 +21,14 @@ class Modal extends Component {
       <>
         <Select
           name="method"
+          textLabel="Método de pagamento"
           options={ ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'] }
           value={ method }
           onChange={ onChange }
         />
         <Select
           name="tag"
+          textLabel="Tag"
           options={ ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'] }
           value={ tag }
           onChange={ onChange }
@@ -39,19 +42,18 @@ class Modal extends Component {
     if (!show) return '';
     return (
       <div className="modal">
-        <h3>Editar despesa</h3>
-        <FaTimes />
+        <ModalHeader title="Editar despesa" />
         <form>
           <Input
             name="value"
-            textLabel="Valor:"
+            textLabel="Valor"
             type="number"
             value={ value.toString() }
             onChange={ onChange }
           />
           <Select
             name="currency"
-            textLabel="Moeda:"
+            textLabel="Moeda"
             options={ [...currencies] }
             value={ currency }
             onChange={ onChange }
@@ -64,20 +66,22 @@ class Modal extends Component {
             value={ description }
             onChange={ onChange }
           />
-          <Button
-            name="Salvar"
-            value="Salvar"
-            textLabel=""
-            disabled=""
-            onClick={ () => {} }
-          />
-          <Button
-            name="Cancelar"
-            value="Cancelar"
-            textLabel=""
-            disabled=""
-            onClick={ () => {} }
-          />
+          <footer className="form-footer">
+            <Button
+              name="Salvar"
+              value="Salvar"
+              textLabel=""
+              disabled=""
+              onClick={ () => {} }
+            />
+            <Button
+              name="Cancelar"
+              value="Cancelar"
+              textLabel=""
+              disabled=""
+              onClick={ () => {} }
+            />
+          </footer>
         </form>
       </div>
     );
