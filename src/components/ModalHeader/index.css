@@ -1,0 +1,14 @@
+.modal-header {
+  display: flex;
+  align-items:stretch;
+  padding:1em;
+  width:100%;
+}
+
+.modal-header h3 {
+  flex-grow:2;
+}
+
+.icon-close {
+  margin:0;
+}
