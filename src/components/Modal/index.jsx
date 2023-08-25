@@ -38,11 +38,11 @@ class Modal extends Component {
 
   render() {
     const { show, expense: { value, currency, description },
-      onChange, onClick, currencies } = this.props;
+      onChange, onClick, onToggle, currencies } = this.props;
     if (!show) return '';
     return (
       <div className="modal">
-        <ModalHeader title="Editar despesa" onClick={ onClick } />
+        <ModalHeader title="Editar despesa" onClick={ onToggle } />
         <form>
           <Input
             name="value"
@@ -72,14 +72,14 @@ class Modal extends Component {
               value="Salvar"
               textLabel=""
               disabled=""
-              onClick={ () => {} }
+              onClick={ onClick }
             />
             <Button
               name="Cancelar"
               value="Cancelar"
               textLabel=""
               disabled=""
-              onClick={ onClick }
+              onClick={ onToggle }
             />
           </footer>
         </form>
@@ -102,6 +102,7 @@ Modal.propTypes = {
   }).isRequired,
   onChange: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
+  onToggle: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
 };
 
