@@ -39,7 +39,7 @@ The Trybewallet is a currency converter expense control wallet.
 - [x] Remove an expense
 - [x] Edit an expense
 - [x] View total spend converted to BRL (Brazilian Real) currency
-- [] Implement test scripts
+- [ ] Implement test scripts
 
 
 <p align="right"><a href="#trybewallet">back to top</a></p>
